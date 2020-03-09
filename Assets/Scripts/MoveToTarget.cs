@@ -5,25 +5,24 @@ using UnityEngine.AI;
 
 public class MoveToTarget : MonoBehaviour 
 {
-    private NavMeshAgent navMeshAgent;
-    private bool canMove = true;
-
-    [SerializeField]private GameObject Test;
+    private NavMeshAgent _navMeshAgent;
+    public bool canMove = true;
+    [SerializeField]private GameObject _target;
 
     private void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
     private void Update() 
     {
         if(canMove) 
         {
-            MoveToPoint(Test.transform.position);
+            MoveToPoint(_target.transform.position);
         }
     }
-    private void MoveToPoint(Vector3 TargetPosition) 
+    private void MoveToPoint(Vector3 targetPosition) 
     {
-        navMeshAgent.SetDestination(TargetPosition);
+        _navMeshAgent.SetDestination(targetPosition);
     }
     
 }
