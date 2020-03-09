@@ -336,16 +336,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7b99c620f8f6d469dfe7a80790b56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxOffset: 0
+  _maxOffset: 40
   _innerCircle: {fileID: 1965475607}
   _outerCircle: {fileID: 1852342758}
-  OnJoystickEnter:
+  _onJoystickEnter:
     m_PersistentCalls:
       m_Calls: []
-  OnJoystickStay:
+  _onJoystickStay:
     m_PersistentCalls:
       m_Calls: []
-  OnJoystickExit:
+  _onJoystickExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1343200630
