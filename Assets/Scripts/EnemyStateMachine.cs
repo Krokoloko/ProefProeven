@@ -18,7 +18,7 @@ public class EnemyStateMachine : MonoBehaviour
     public delegate void stateCharge();
     public event stateCharge StateCharge;
 
-    private enum States
+    public enum States
     {
         Attacking,
         Wandering,
@@ -43,11 +43,12 @@ public class EnemyStateMachine : MonoBehaviour
             break;
         }
     }
-    private void ChangeState(States newState) //moet getter / setter worden
+    public void ChangeState(States newState)
     {
+        print("state: " + newState);
         currentState = newState;
     }
-    private States GetState() //moet getter / setter worden
+    public States GetState()
     {
         return currentState;
     }
