@@ -5,10 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public enum JoystickeventState { Enter, Stay, Exit};
+
 public class JoystickData : EventArgs
 {
     public Vector2 direction;
     public float distance;
+    public JoystickeventState eventType;
 }
 [System.Serializable]
 public class JoystickEvent : UnityEvent<JoystickData> { }
@@ -85,6 +88,7 @@ public class VirtualJoystick : MonoBehaviour
                 //Activate OnJoystickEnter event unless it has no subscribed actions
                 data.direction = GetVector2();
                 data.distance = GetNormalisedDistance();
+                data.eventType = JoystickeventState.Enter;
                 _onJoystickEnter?.Invoke(data);
             }
             if (_joystickDetected)
@@ -99,6 +103,7 @@ public class VirtualJoystick : MonoBehaviour
                     //Activate OnJoystickExit event unless it has no subscribed actions
                     data.direction = GetVector2();
                     data.distance = GetNormalisedDistance();
+                    data.eventType = JoystickeventState.Exit;
                     _onJoystickExit?.Invoke(data);
                 }
                 else
@@ -109,7 +114,7 @@ public class VirtualJoystick : MonoBehaviour
                     //Updates position of the innerCircle/joystick
                     data.direction = GetVector2();
                     data.distance = GetNormalisedDistance();
-
+                    data.eventType = JoystickeventState.Stay;
                     //Activate OnJoystickStay event unless it has no subscribed actions
                     _onJoystickStay?.Invoke(data);
 
