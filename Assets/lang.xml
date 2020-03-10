@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+    <English>
+        <string name="test">This is a test</string>
+    </English>
+
+    <Dutch>
+        <string name="test">Dit is een test</string>
+    </Dutch>
+
+    <Chinese>
+        <string name="test">Ik spreek geen chinees</string>
+    </Chinese>
+</languages>
