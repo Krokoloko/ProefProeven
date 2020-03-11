@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3681135196750494372}
   - component: {fileID: 699050222728532595}
   - component: {fileID: 4071072693467694978}
+  - component: {fileID: 5099466086778066065}
   - component: {fileID: 3681135196750494375}
   m_Layer: 9
   m_Name: RangeEnemy
@@ -232,6 +233,18 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5099466086778066065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627424304698450857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e364d913f08900c45930ea03243ef4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &3681135196750494375
 NavMeshAgent:
   m_ObjectHideFlags: 0
