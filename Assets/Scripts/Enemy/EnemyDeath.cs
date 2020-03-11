@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    private GenericHealth genericHealth;
+    private GenericHealth _genericHealth;
 
     private void Start() 
     {
-        genericHealth = GetComponent<GenericHealth>();
-        genericHealth.onDeath.AddListener(EnemyDied);
+        _genericHealth = GetComponent<GenericHealth>();
+        _genericHealth.onDeath.AddListener(EnemyDied);
     }
     private void EnemyDied() 
     {
@@ -18,6 +18,6 @@ public class EnemyDeath : MonoBehaviour
     }
     private void OnDestroy() 
     {
-        genericHealth.onDeath.RemoveListener(EnemyDied);
+        _genericHealth.onDeath.RemoveListener(EnemyDied);
     }
 }
