@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WanderState : MonoBehaviour
 {
-    private EnemyStateMachine enemyStateMachine;
+    private EnemyStateMachine _enemyStateMachine;
 
     void Start() 
     {
-        enemyStateMachine = GetComponent<EnemyStateMachine>();
-        enemyStateMachine.EnterStateWandering += EnterWanderState;
-        enemyStateMachine.ExitStateWandering += ExitWanderState;
+        _enemyStateMachine = GetComponent<EnemyStateMachine>();
+        _enemyStateMachine.EnterStateWandering += EnterWanderState;
+        _enemyStateMachine.ExitStateWandering += ExitWanderState;
     }
     private void EnterWanderState() 
     {
@@ -22,7 +22,7 @@ public class WanderState : MonoBehaviour
     }
     private void OnDestroy() 
     {
-        enemyStateMachine.EnterStateWandering -= EnterWanderState;
-        enemyStateMachine.ExitStateWandering -= ExitWanderState;
+        _enemyStateMachine.EnterStateWandering -= EnterWanderState;
+        _enemyStateMachine.ExitStateWandering -= ExitWanderState;
     }
 }

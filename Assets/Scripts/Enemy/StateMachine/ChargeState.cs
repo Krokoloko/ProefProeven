@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class ChargeState : MonoBehaviour
 {
-    private EnemyStateMachine enemyStateMachine;
-    private MoveToTarget moveToTarget;
+    private EnemyStateMachine _enemyStateMachine;
+    private MoveToTarget _moveToTarget;
 
     void Start()
     {
-        moveToTarget = GetComponent<MoveToTarget>();
-        enemyStateMachine = GetComponent<EnemyStateMachine>();
-        enemyStateMachine.EnterStateCharge += EnterChargeState;
-        enemyStateMachine.ExitStateCharge += ExitChargeState;
+        _moveToTarget = GetComponent<MoveToTarget>();
+        _enemyStateMachine = GetComponent<EnemyStateMachine>();
+        _enemyStateMachine.EnterStateCharge += EnterChargeState;
+        _enemyStateMachine.ExitStateCharge += ExitChargeState;
     }
     private void EnterChargeState()
     {
-        moveToTarget.StartMoving();
+        _moveToTarget.StartMoving();
     }
     private void ExitChargeState() 
     {
-        moveToTarget.StopMoving();
+        _moveToTarget.StopMoving();
     }
     private void OnDestroy() 
     {
-        enemyStateMachine.EnterStateCharge -= EnterChargeState;
-        enemyStateMachine.ExitStateCharge -= ExitChargeState;
+        _enemyStateMachine.EnterStateCharge -= EnterChargeState;
+        _enemyStateMachine.ExitStateCharge -= ExitChargeState;
     }
 }

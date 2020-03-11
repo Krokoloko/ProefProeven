@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class MeleeAttackState : MonoBehaviour
 {
-    private EnemyStateMachine enemyStateMachine;
-    private MeleeAttack meleeAttack;
+    private EnemyStateMachine _enemyStateMachine;
+    private MeleeAttack _meleeAttack;
 
     void Start() 
     {
-        meleeAttack = GetComponent<MeleeAttack>();
-        enemyStateMachine = GetComponent<EnemyStateMachine>();
-        enemyStateMachine.EnterStateAttacking += EnterAttackState;
-        enemyStateMachine.ExitStateAttacking += ExitAttackState;
+        _meleeAttack = GetComponent<MeleeAttack>();
+        _enemyStateMachine = GetComponent<EnemyStateMachine>();
+        _enemyStateMachine.EnterStateAttacking += EnterAttackState;
+        _enemyStateMachine.ExitStateAttacking += ExitAttackState;
     }
     private void EnterAttackState()
     {
-        meleeAttack.StartAttack();
+        _meleeAttack.StartAttack();
     }
     private void ExitAttackState()
     {
-        meleeAttack.StopAttack();
+        _meleeAttack.StopAttack();
     }
     private void OnDestroy() 
     {
-        enemyStateMachine.EnterStateAttacking -= EnterAttackState;
-        enemyStateMachine.ExitStateAttacking -= ExitAttackState;
+        _enemyStateMachine.EnterStateAttacking -= EnterAttackState;
+        _enemyStateMachine.ExitStateAttacking -= ExitAttackState;
     }
 }

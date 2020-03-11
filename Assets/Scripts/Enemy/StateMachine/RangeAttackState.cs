@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class RangeAttackState : MonoBehaviour
 {
-    private EnemyStateMachine enemyStateMachine;
-    private RangeAttack rangeAttack;
+    private EnemyStateMachine _enemyStateMachine;
+    private RangeAttack _rangeAttack;
 
     void Start() 
     {
-        rangeAttack = GetComponent<RangeAttack>();
-        enemyStateMachine = GetComponent<EnemyStateMachine>();
-        enemyStateMachine.EnterStateAttacking += EnterAttackState;
-        enemyStateMachine.ExitStateAttacking += ExitAttackState;
+        _rangeAttack = GetComponent<RangeAttack>();
+        _enemyStateMachine = GetComponent<EnemyStateMachine>();
+        _enemyStateMachine.EnterStateAttacking += EnterAttackState;
+        _enemyStateMachine.ExitStateAttacking += ExitAttackState;
     }
     private void EnterAttackState()
     {
-        rangeAttack.StartShooting();
+        _rangeAttack.StartShooting();
     }
     private void ExitAttackState()
     {
-        rangeAttack.StopShooting();
+        _rangeAttack.StopShooting();
     }
     private void OnDestroy() 
     {
-        enemyStateMachine.EnterStateAttacking -= EnterAttackState;
-        enemyStateMachine.ExitStateAttacking -= ExitAttackState;
+        _enemyStateMachine.EnterStateAttacking -= EnterAttackState;
+        _enemyStateMachine.ExitStateAttacking -= ExitAttackState;
     }
 }
