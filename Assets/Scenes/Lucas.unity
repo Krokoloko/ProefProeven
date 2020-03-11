@@ -1337,8 +1337,8 @@ GameObject:
   - component: {fileID: 2001742181}
   - component: {fileID: 2001742180}
   - component: {fileID: 2001742179}
+  - component: {fileID: 2001742183}
   - component: {fileID: 2001742178}
-  - component: {fileID: 2001742182}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1414,13 +1414,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001742177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: 0, z: -8.35}
+  m_LocalPosition: {x: -1, y: 0.5, z: -8}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2001742182
+--- !u!114 &2001742183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1429,13 +1429,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001742177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b0cb8516fa148ecb47b256d90767d5, type: 3}
+  m_Script: {fileID: 11500000, guid: e364d913f08900c45930ea03243ef4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2055017261
 GameObject:
   m_ObjectHideFlags: 0

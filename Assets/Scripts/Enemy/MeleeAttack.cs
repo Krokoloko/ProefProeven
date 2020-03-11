@@ -10,7 +10,6 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] private Vector3 _pivotPointOffset;
     [SerializeField] private bool _hitEnemys;
     [SerializeField] private bool _hitPlayer;
-
     private int _hitLayers;
     private float _attackTimer;
     private bool _canAttack = false;

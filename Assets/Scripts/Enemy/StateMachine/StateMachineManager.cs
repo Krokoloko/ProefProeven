@@ -5,13 +5,11 @@ using UnityEngine;
 public class StateMachineManager : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    private EnemyStateMachine enemyStateMachine;    
-    private int _layer_mask;
-    private Vector3 _rayDirection;
-
     [SerializeField] private float _attackRange;
     [SerializeField] private float _agroRange;
-
+    private EnemyStateMachine enemyStateMachine;
+    private Vector3 _rayDirection;
+    private int _layer_mask;
 
     private void Start()
     {

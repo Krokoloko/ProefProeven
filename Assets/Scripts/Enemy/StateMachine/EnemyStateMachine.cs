@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour 
 {
-    //enemy aanvallen kan dan niet lopen 
-    //hij loopt naar je toe als je binnen zijn vision range bent
-    //hij shiet pas als je in shiet range ben
-    //wander = idle
-
     private States _currentState;
 
     public delegate void enterStateAttacking();

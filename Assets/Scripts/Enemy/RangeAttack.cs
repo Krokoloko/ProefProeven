@@ -10,8 +10,7 @@ public class RangeAttack : MonoBehaviour
     [SerializeField] private int _projectileDamage;
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private float _projectileLifeTime; 
-    [SerializeField] private Vector3 _pivotPointOffset;    
-
+    [SerializeField] private Vector3 _pivotPointOffset;
     private float _shootTimer;
     private bool _canShoot = false;
 

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2406803493116905129}
   - component: {fileID: 5327167215189783308}
   - component: {fileID: 5228134028828638297}
+  - component: {fileID: 7924391038280683644}
   - component: {fileID: 5327167215189783311}
   m_Layer: 9
   m_Name: MeleeEnemy
@@ -133,6 +134,22 @@ MonoBehaviour:
   _pivotPointOffset: {x: 0, y: 1, z: 0}
   _hitEnemys: 1
   _hitPlayer: 1
+--- !u!114 &7924391038280683644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236773779058010625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b0cb8516fa148ecb47b256d90767d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &5327167215189783311
 NavMeshAgent:
   m_ObjectHideFlags: 0
