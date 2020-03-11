@@ -27,7 +27,7 @@ public class GenericHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
-
+        
         if (_currentHealth <= 0)
         {
             onDeath.Invoke();
