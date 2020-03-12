@@ -27,6 +27,7 @@ public class RangeAttack : MonoBehaviour
     {
         Vector3 _shootDirection = _target.transform.position - (transform.position + _pivotPointOffset);
         GameObject _spawnedObject = Instantiate(_projectile, (transform.position + _pivotPointOffset), Quaternion.EulerAngles(0, 0, 0));
+        Physics.IgnoreCollision(_spawnedObject.GetComponent<Collider>(), GetComponent<Collider>());
         _spawnedObject.transform.parent = transform;
         _spawnedObject.GetComponent<Rigidbody>().velocity = _shootDirection.normalized * _projectileSpeed;
         _spawnedObject.GetComponent<Projectile>().projectileDamage = _projectileDamage;

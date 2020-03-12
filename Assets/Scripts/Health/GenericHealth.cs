@@ -26,6 +26,7 @@ public class GenericHealth : MonoBehaviour
     /// <param name="damage">Amount of damage applied</param>
     public void TakeDamage(float damage)
     {
+        //print("damage");
         _currentHealth -= damage;
         
         if (_currentHealth <= 0)

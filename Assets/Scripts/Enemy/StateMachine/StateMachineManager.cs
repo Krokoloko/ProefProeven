@@ -37,11 +37,11 @@ public class StateMachineManager : MonoBehaviour
     {
         if(ingnoreObjects) 
         {
-            _layermask = 1 << 8;
+            _layermask = 1 << 8 | 1 << 10;
         }
         else
         {
-            _layermask = 1 << 0 | 1 << 8;
+            _layermask = 1 << 0 | 1 << 8 | 1 << 10;
         }
 
         RaycastHit hit;
