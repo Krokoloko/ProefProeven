@@ -13,22 +13,23 @@ public class MeleeAttack : MonoBehaviour
     private int _hitLayers;
     private float _attackTimer;
     private bool _canAttack = false;
+    private bool _attackEnabled = true;
 
     private void Start()
     {
         if(_hitEnemys) 
         {
-            _hitLayers = _hitLayers | 1 << 8;
+            _hitLayers = _hitLayers | 1 << 9;
         }
         if(_hitPlayer) 
         {
-            _hitLayers = _hitLayers | 1 << 9;
+            _hitLayers = _hitLayers | 1 << 8;
         }
     }
     private void Update() 
     {
         _attackTimer += Time.deltaTime;
-        if(_canAttack && _attackRate <= _attackTimer)
+        if(_attackEnabled && _canAttack && _attackRate <= _attackTimer)
         {
             _attackTimer = 0;
             Attack();
@@ -42,6 +43,7 @@ public class MeleeAttack : MonoBehaviour
 
         foreach(Collider hit in hitTargets) 
         {
+            print(hit.name);
             hit.GetComponent<GenericHealth>().TakeDamage(_hitDamage);
         }
     }
@@ -57,5 +59,15 @@ public class MeleeAttack : MonoBehaviour
     public void StopAttack() 
     {
         _canAttack = false;
+    }
+
+    public void EnableAttack()
+    {
+        _attackEnabled = true;
+    }
+
+    public void DisableAttack()
+    {
+        _attackEnabled = false;
     }
 }
