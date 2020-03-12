@@ -18,16 +18,16 @@ public class PlayerRoll : MonoBehaviour
     private int _totalRollFrames;
 
     [SerializeField]
-    private LayerMask _invulnerableLayer;
+    private int _invulnerableLayer;
 
     [SerializeField]
-    private UnityEvent _OnRollEnter;
+    private UnityEvent _onRollEnter;
 
     [SerializeField]
-    private UnityEvent _OnRollStay;
+    private UnityEvent _onRollStay;
 
     [SerializeField]
-    private UnityEvent _OnRollExit;
+    private UnityEvent _onRollExit;
 
     private bool _rolling = false;
 
@@ -40,7 +40,6 @@ public class PlayerRoll : MonoBehaviour
     {
         if (!_rolling)
         {
-            _OnRollEnter?.Invoke();
             _rolling = true;
 
             StartCoroutine("Roll");
@@ -52,35 +51,24 @@ public class PlayerRoll : MonoBehaviour
         Vector3 direction = (_player.transform.position - _player.transform.position+Vector3.forward).normalized;
         Vector3 destination = _player.transform.position + direction*_rollDistance;
         float rollDistancePerFrame = Vector3.Distance(_player.transform.position, destination)/_totalRollFrames;
-        _player.layer += _invulnerableLayer;
+        int originalLayer = _player.layer;
+        _player.layer = _invulnerableLayer;
 
-        _OnRollEnter?.Invoke();
+        _onRollEnter?.Invoke();
         yield return new WaitForEndOfFrame();
 
         for (int i = 0; i < _totalRollFrames; i++) { 
             if (i == _invulnerableFrames)
             {
-                _player.layer -= _invulnerableLayer;
+                _player.layer = originalLayer;
             }
 
             _player.transform.Translate(direction * rollDistancePerFrame);
 
-            _OnRollStay?.Invoke();
+            _onRollStay?.Invoke();
             yield return new WaitForEndOfFrame();
         }
-        _OnRollExit?.Invoke();
+        _onRollExit?.Invoke();
         _rolling = false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-                
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
