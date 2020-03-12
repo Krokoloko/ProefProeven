@@ -1339,6 +1339,8 @@ GameObject:
   - component: {fileID: 2001742179}
   - component: {fileID: 2001742178}
   - component: {fileID: 2001742182}
+  - component: {fileID: 2001742184}
+  - component: {fileID: 2001742183}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1436,6 +1438,33 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2001742183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001742177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7c9658f060fb54093b0702e722ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneBuildNumber: 0
+  _showImagesObject: []
+  _waitTimeBetweenImages: 0
+--- !u!114 &2001742184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001742177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da7376b2e970714b871cff0da8c65af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055017261
 GameObject:
   m_ObjectHideFlags: 0
