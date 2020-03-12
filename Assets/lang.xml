@@ -2,13 +2,25 @@
 <languages>
     <English>
         <string name="test">This is a test</string>
+        
+        <string name="testLine1">Hello, I am an NPC</string>
+        <string name="testLine2">How are you</string>
+        <string name="testLine3">Okay, bye</string>
     </English>
 
     <Dutch>
         <string name="test">Dit is een test</string>
+
+        <string name="testLine1">Hello, I am an NPC</string>
+        <string name="testLine2">How are you</string>
+        <string name="testLine3">Okay, bye</string>
     </Dutch>
 
     <Chinese>
         <string name="test">Ik spreek geen chinees</string>
+
+        <string name="testLine1">Hello, I am an NPC</string>
+        <string name="testLine2">How are you</string>
+        <string name="testLine3">Okay, bye</string>
     </Chinese>
 </languages>
