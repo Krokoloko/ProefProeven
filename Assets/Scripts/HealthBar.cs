@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
+        _healthBarImage = _healthBar.GetComponent<Image>();
         _genericHealth = GetComponent<GenericHealth>();
         _genericHealth.OnTakeDamage += UpdateHealtBar;
     }
