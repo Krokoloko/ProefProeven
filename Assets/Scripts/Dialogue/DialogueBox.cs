@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
+    public static DialogueBox Instance;
+
     [SerializeField]
     private GameObject _dialogueBox;
     [SerializeField]
@@ -20,6 +22,17 @@ public class DialogueBox : MonoBehaviour
     private bool _doneWriting;
 
     private bool _inDialogue;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(this);
+        }
+    }
 
     private void Update()
     {
