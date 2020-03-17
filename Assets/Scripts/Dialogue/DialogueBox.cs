@@ -24,7 +24,7 @@ public class DialogueBox : MonoBehaviour
     private void Update()
     {
         // Go to the next line or skip writing the line when the mouse button is clicked
-        if (Input.GetMouseButtonDown(0) && _inDialogue)
+        if (_inDialogue && (Input.GetMouseButtonDown(0) || ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))))
         {
             if (_doneWriting)
             {

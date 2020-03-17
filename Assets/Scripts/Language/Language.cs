@@ -23,7 +23,7 @@ public class Language : MonoBehaviour
         // Load language file
         langDoc = new XmlDocument();
         langDoc.PreserveWhitespace = true;
-        langDoc.Load(Path.Combine(Application.dataPath, "lang.xml"));
+        langDoc.Load(Path.Combine(Application.streamingAssetsPath, "lang.xml"));
         
         // Initiate the event
         if (LanguageChanged == null)
