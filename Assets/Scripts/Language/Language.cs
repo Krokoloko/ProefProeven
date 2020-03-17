@@ -20,11 +20,15 @@ public class Language : MonoBehaviour
 
     private void Awake()
     {
-        // Load language file
+        // Load file from resources
+        TextAsset lang = Resources.Load<TextAsset>("Language/lang");
+
+        // Setup xml document
         langDoc = new XmlDocument();
         langDoc.PreserveWhitespace = true;
-        langDoc.Load(Path.Combine(Application.streamingAssetsPath, "lang.xml"));
-        
+        //langDoc.Load(Path.Combine(Application.streamingAssetsPath, "lang.xml"));
+        langDoc.LoadXml(lang.text);
+
         // Initiate the event
         if (LanguageChanged == null)
             LanguageChanged = new UnityEvent();
