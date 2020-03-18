@@ -15,6 +15,9 @@ public class MeleeAttack : MonoBehaviour
     private bool _canAttack = false;
     private bool _attackEnabled = true;
 
+    public delegate void onAttack();
+    public event onAttack OnAttack;
+
     private void Start()
     {
         if(_hitEnemys) 
@@ -37,6 +40,7 @@ public class MeleeAttack : MonoBehaviour
     }
     private void Attack() 
     {
+        OnAttack?.Invoke();
         print("meleeAttack");        
         Vector3 _attackPosition = transform.position + _pivotPointOffset + transform.forward.normalized;
         Collider[] hitTargets = Physics.OverlapSphere(_attackPosition, _attackRange, _hitLayers);

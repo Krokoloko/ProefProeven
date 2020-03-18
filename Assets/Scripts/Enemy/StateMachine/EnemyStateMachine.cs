@@ -27,6 +27,10 @@ public class EnemyStateMachine : MonoBehaviour
     }
     private void Start() 
     {
+        Invoke("DelayStart", 0.25f);        
+    }
+    private void DelayStart() 
+    {
         ChangeState(States.Wandering);
     }
     private void StateEnter() 
@@ -61,10 +65,13 @@ public class EnemyStateMachine : MonoBehaviour
     }
     public void ChangeState(States newState)
     {
-        print("state: " + newState);
-        StateExit();
-        _currentState = newState;
-        StateEnter();
+        if(_currentState != newState) 
+        {
+            //print("state: " + newState);
+            StateExit();
+            _currentState = newState;
+            StateEnter();
+        }        
     }
     public States GetState()
     {

@@ -14,6 +14,9 @@ public class RangeAttack : MonoBehaviour
     private float _shootTimer;
     private bool _canShoot = false;
 
+    public delegate void onAttack();
+    public event onAttack OnAttack;
+
     private void Update() 
     {
         _shootTimer += Time.deltaTime;
@@ -25,6 +28,7 @@ public class RangeAttack : MonoBehaviour
     }
     private void Shoot()
     {
+        OnAttack?.Invoke();
         Vector3 _shootDirection = _target.transform.position - (transform.position + _pivotPointOffset);
         GameObject _spawnedObject = Instantiate(_projectile, (transform.position + _pivotPointOffset), Quaternion.EulerAngles(0, 0, 0));
         Physics.IgnoreCollision(_spawnedObject.GetComponent<Collider>(), GetComponent<Collider>());
