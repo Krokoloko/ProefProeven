@@ -35,17 +35,14 @@ public class EnemyAnimations : MonoBehaviour
     }
     private void StartedMoving()
     {
-        //print("start" + Time.time);
         ChangeAnimation(0);
     }
     private void IsIdle() 
     {
-        //print("stop" + Time.time);
         ChangeAnimation(1);
     }
     private void ChangeAnimation(int i) 
     {
-        print("cha " + _animationIsPlaying +" : "+ i);
         _currentAnimation = i;
         if(!_animationIsPlaying) 
         {
@@ -54,7 +51,6 @@ public class EnemyAnimations : MonoBehaviour
     }
     private void PlayNewAnimation(int i) 
     {
-        //print("playNew" + i);
         for(int j = 0; j < Animations.Length; j++) 
         {
             if(Animations[j] != null) {

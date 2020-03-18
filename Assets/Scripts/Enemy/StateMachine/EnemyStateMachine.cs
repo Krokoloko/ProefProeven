@@ -67,7 +67,6 @@ public class EnemyStateMachine : MonoBehaviour
     {
         if(_currentState != newState) 
         {
-            //print("state: " + newState);
             StateExit();
             _currentState = newState;
             StateEnter();

@@ -13,8 +13,7 @@ public class PlayerAnimationManager : MonoBehaviour
     private PlayerRoll _playerRoll;
     private IEnumerator coroutine;
     private int _currentAnimation = 0;
-    private bool _animationIsPlaying;
-    
+    private bool _animationIsPlaying;   
    
     void Start() 
     {
