@@ -10,9 +10,10 @@ public class SwitchScene : MonoBehaviour
     [SerializeField] private GameObject _background;
     [SerializeField] private float _waitTimeBetweenImages;
     [SerializeField] private PlayerDeath _playerDeath;
+    [SerializeField] private bool _showCutscene;
 
     private IEnumerator _coroutine;
-    private bool _canTrigger = true;
+    private bool _canTrigger = true;    
 
     private void Start()
     {
@@ -23,8 +24,12 @@ public class SwitchScene : MonoBehaviour
         if(_canTrigger) 
         {
             _canTrigger = false;
-            _playerDeath.enabled = false;
-            _background.SetActive(true);
+            if(_showCutscene) 
+            {
+                _playerDeath.enabled = false;
+                _background.SetActive(true);
+            }
+
             StartCoroutine(_coroutine);
         }        
     }
