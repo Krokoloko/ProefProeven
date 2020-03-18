@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _moveTo;
 
+    public delegate void startMoving(int i);
+    public event startMoving StartMoving;
+    public delegate void stopMoving(int i);
+    public event stopMoving StopMoving;
+
     private float _velocity;
     public float Velocity
     {
@@ -32,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
         if (data.eventType == JoystickeventState.Exit)
         {
             _velocity = 0;
+            StopMoving?.Invoke(0);
+            return;
         }
+        StartMoving?.Invoke(1);
     }
 }

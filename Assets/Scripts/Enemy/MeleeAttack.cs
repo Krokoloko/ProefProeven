@@ -10,10 +10,14 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] private Vector3 _pivotPointOffset;
     [SerializeField] private bool _hitEnemys;
     [SerializeField] private bool _hitPlayer;
+    [SerializeField] private float _attackDelay;
     private int _hitLayers;
     private float _attackTimer;
     private bool _canAttack = false;
     private bool _attackEnabled = true;
+
+    public delegate void onAttack();
+    public event onAttack OnAttack;
 
     private void Start()
     {
@@ -37,13 +41,16 @@ public class MeleeAttack : MonoBehaviour
     }
     private void Attack() 
     {
-        print("meleeAttack");        
+        OnAttack?.Invoke();
+        Invoke("DelayAttack", _attackDelay);
+    }
+    private void DelayAttack() 
+    {       
         Vector3 _attackPosition = transform.position + _pivotPointOffset + transform.forward.normalized;
         Collider[] hitTargets = Physics.OverlapSphere(_attackPosition, _attackRange, _hitLayers);
 
         foreach(Collider hit in hitTargets) 
         {
-            print(hit.name);
             hit.GetComponent<GenericHealth>().TakeDamage(_hitDamage);
         }
     }

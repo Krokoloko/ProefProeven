@@ -31,6 +31,9 @@ public class PlayerRoll : MonoBehaviour
 
     private bool _rolling = false;
 
+    public delegate void onRol();
+    public event onRol OnRol;
+
     void Awake()
     {
         _player = (!_player) ? gameObject : _player;    
@@ -41,7 +44,7 @@ public class PlayerRoll : MonoBehaviour
         if (!_rolling)
         {
             _rolling = true;
-
+            OnRol?.Invoke();
             StartCoroutine("Roll");
         }
     }

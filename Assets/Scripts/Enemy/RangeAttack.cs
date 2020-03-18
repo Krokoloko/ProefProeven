@@ -11,8 +11,12 @@ public class RangeAttack : MonoBehaviour
     [SerializeField] private float _projectileSpeed;
     [SerializeField] private float _projectileLifeTime; 
     [SerializeField] private Vector3 _pivotPointOffset;
+    [SerializeField] private float _bulletFireDelay;
     private float _shootTimer;
     private bool _canShoot = false;
+
+    public delegate void onAttack();
+    public event onAttack OnAttack;
 
     private void Update() 
     {
@@ -23,7 +27,12 @@ public class RangeAttack : MonoBehaviour
             Shoot();
         }
     }
-    private void Shoot()
+    private void Shoot() 
+    {
+        OnAttack?.Invoke();
+        Invoke("DelayShoot", _bulletFireDelay);
+    }
+    private void DelayShoot()
     {
         Vector3 _shootDirection = _target.transform.position - (transform.position + _pivotPointOffset);
         GameObject _spawnedObject = Instantiate(_projectile, (transform.position + _pivotPointOffset), Quaternion.EulerAngles(0, 0, 0));
